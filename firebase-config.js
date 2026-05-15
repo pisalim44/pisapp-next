@@ -1,18 +1,8 @@
-// PISApp Next - Firebase config
-// 1) No Firebase Console: Project settings -> General -> Your apps -> Web app
-// 2) Copie firebaseConfig e cole abaixo.
-// 3) App Check é opcional nesta v0.1. Ative depois que login/firestore estiver ok.
-
 export const firebaseConfig = {
-  apiKey: "COLE_AQUI",
-  authDomain: "COLE_AQUI.firebaseapp.com",
-  projectId: "COLE_AQUI",
-  storageBucket: "COLE_AQUI.appspot.com",
-  messagingSenderId: "COLE_AQUI",
-  appId: "COLE_AQUI"
-};
-
-export const appCheckConfig = {
-  enabled: false,
-  recaptchaV3SiteKey: "COLE_AQUI_SE_ATIVAR_APP_CHECK"
+  apiKey: "AIzaSyCDj-Ii3wTtWuz2glc7X9g6XoSBHiXPI6Q",
+  authDomain: "pisapp-next.firebaseapp.com",
+  projectId: "pisapp-next",
+  storageBucket: "pisapp-next.firebasestorage.app",
+  messagingSenderId: "189401127059",
+  appId: "1:189401127059:web:76d96338438bbfbfcb1566"
 };
