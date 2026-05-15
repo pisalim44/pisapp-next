@@ -1,7 +1,5 @@
-// firebase-config.js
-
 export const firebaseConfig = {
-  apiKey: "AIzaSyCyDj-II3wTtWuz2glc7X96XoSBHiXPI6Q",
+  apiKey: "AIzaSyCDj-II3wTtWuz2glc7X9g6XoSBHiXPI6Q",
   authDomain: "pisapp-next.firebaseapp.com",
   projectId: "pisapp-next",
   storageBucket: "pisapp-next.firebasestorage.app",
