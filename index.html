@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PISApp Next</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="login" id="loginScreen">
+    <div class="box">
+      <div class="logo">PISApp Next</div>
+      <div class="sub">Firebase Auth + Firestore realtime</div>
+      <div class="field"><label>E-mail</label><input id="email" autocomplete="email"></div>
+      <div class="field"><label>Senha</label><input id="password" type="password" autocomplete="current-password"></div>
+      <button class="btn" style="width:100%" id="btnLogin">Entrar</button>
+      <div class="err" id="loginErr"></div>
+      <div class="sub" style="margin-top:16px;margin-bottom:0">Primeiro acesso: crie o usuário no Firebase Auth e o perfil em <b>users/{uid}</b>.</div>
+    </div>
+  </div>
+
+  <div class="app" id="appShell">
+    <aside class="side">
+      <div class="brand">PISApp Next</div>
+      <div class="user" id="userInfo">—</div>
+      <div class="nav">
+        <button data-sec="dashboard" class="on">Dashboard</button>
+        <button data-sec="worklist">Worklist realtime</button>
+        <button data-sec="requests">Solicitações</button>
+        <button data-sec="projects">Projetos</button>
+        <button data-sec="equipment">Equipamentos</button>
+        <button data-sec="governance">Governança</button>
+        <button data-sec="audit">Auditoria</button>
+      </div>
+      <button class="btnLine" style="width:100%;margin-top:16px" id="btnLogout">Sair</button>
+    </aside>
+
+    <main class="main">
+      <div class="top"><b id="pageTitle">Dashboard</b><span id="syncStatus">Sincronizado</span></div>
+      <div class="content">
+        <section id="dashboard" class="section on">
+          <div class="grid">
+            <div class="card"><div class="k">Exames hoje</div><div class="v" id="dashToday">0</div></div>
+            <div class="card"><div class="k">Pendentes</div><div class="v" id="dashPending">0</div></div>
+            <div class="card"><div class="k">Em andamento</div><div class="v" id="dashRunning">0</div></div>
+            <div class="card"><div class="k">Concluídos</div><div class="v" id="dashDone">0</div></div>
+          </div>
+          <div class="card"><b>Base v0.1</b><p>Esta é a primeira base do PISApp Next. O beta Apps Script continua separado.</p></div>
+        </section>
+
+        <section id="worklist" class="section">
+          <div class="toolbar">
+            <div class="row"><label>Data</label><input id="wlDate" type="date" style="width:auto"><button class="btnLine" id="btnRefreshWL">Atualizar</button></div>
+            <span class="pill ok">Realtime ativo</span>
+          </div>
+          <div class="card"><table><thead><tr><th>Hora</th><th>Código</th><th>Sujeito</th><th>Modalidade</th><th>Status</th><th>Ações</th></tr></thead><tbody id="wlBody"></tbody></table></div>
+        </section>
+
+        <section id="requests" class="section">
+          <div class="toolbar"><b>Solicitações</b><button class="btn" id="btnNewReq">Nova solicitação teste</button></div>
+          <div class="card"><table><thead><tr><th>Data</th><th>Instituto</th><th>Sujeito</th><th>Modalidades</th><th>Status</th></tr></thead><tbody id="reqBody"></tbody></table></div>
+        </section>
+
+        <section id="projects" class="section">
+          <div class="toolbar"><b>Projetos</b><button class="btn" id="btnNewProject">Novo projeto teste</button></div>
+          <div class="card"><table><thead><tr><th>DRO</th><th>Apelido</th><th>Título</th><th>Laudo</th><th>Status ético</th></tr></thead><tbody id="projBody"></tbody></table></div>
+        </section>
+
+        <section id="equipment" class="section">
+          <div class="toolbar"><b>Equipamentos</b><button class="btn" id="btnNewEquip">Novo equipamento teste</button></div>
+          <div class="card"><table><thead><tr><th>Nome</th><th>Modalidade</th><th>Modelo</th><th>Software</th><th>Status</th><th>Ação</th></tr></thead><tbody id="eqBody"></tbody></table></div>
+        </section>
+
+        <section id="governance" class="section">
+          <div class="toolbar"><b>Governança</b><button class="btn" id="btnNewDoctor">Cadastrar médico teste</button></div>
+          <div class="card"><h3>Médicos laudadores</h3><table><thead><tr><th>Nome</th><th>Ativo</th><th>Criado em</th></tr></thead><tbody id="docBody"></tbody></table></div>
+        </section>
+
+        <section id="audit" class="section">
+          <div class="toolbar"><b>Auditoria</b><button class="btnLine" id="btnAudit">Carregar últimos logs</button></div>
+          <div class="card"><table><thead><tr><th>Data</th><th>Ação</th><th>Usuário</th><th>Detalhes</th></tr></thead><tbody id="auditBody"></tbody></table></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal" id="modalQSeg"><div class="modalBox"><h2>Questionário de Segurança</h2><div id="qSegInfo"></div><div id="qSegItems"></div><div class="two"><div class="field"><label>Biomédico</label><input id="qSegAssinadoPor"></div><div class="field"><label>CRBM</label><input id="qSegCRBM"></div></div><div class="row"><button class="btn" id="btnSaveQSeg">Salvar e assinar</button><button class="btnLine" onclick="document.getElementById('modalQSeg').classList.remove('on')">Fechar</button></div></div></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
